@@ -30,29 +30,69 @@ function Update()
 //
 function Init()
 {
-  button.addEventListener('click',function(){
-    img.src="open_pack.png";
-    img.style.zIndex=100;
-    document.body.appendChild(beanNum);
-    beanNum.className="count";
-    parent.appendChild(dropPlace);
-    dropPlace.className="dropPlace";
-    DropPlace();
-
-    // dropPlace.className="dropPlace";
-
-    PopBean();
-  })
+  button.addEventListener('click',OpenPack)
+}
+function OpenPack()
+{
+  img.src="open_pack.png";
+  img.style.zIndex=100;
+  document.body.appendChild(beanNum);
+  beanNum.className="count";
+  parent.appendChild(dropPlace);
+  dropPlace.className="dropPlace";
+  DropPlace();
+  PopBean();
 }
 
-//
+//豆を生成
 function PopBean()
 {
-  for(let i=0;i<beanPos.length;i++)
-  {
-    CreateBean(beanPos[i][0],beanPos[i][1]);
-  }
   
+  //ポップ数の決定
+  let maxPop=beanPos.length;
+  let minPop=1;
+  let popNum=Math.floor(Math.random()*(maxPop-minPop)+minPop);
+  //豆の位置をランダムに取得
+    let rs=[];
+    let rsl=rs.length;
+    test_r();
+      //階乗
+    function stare(l)
+    {
+      if(l==0 || l==1)return 1;
+      else return l*stare(l-1);
+    }
+    //0~lengthまでの整数を重複なしで返す
+    function test_r()
+    {
+      let n=0;
+      while(n<stare(beanPos.length))
+      {
+        rsl=rs.length;
+        for(let i=rsl;i<beanPos.length;i++)
+        {
+          let r=Math.floor(Math.random()*beanPos.length);
+          rs.push(r);
+        }
+        for(let i=0;i<beanPos.length;i++)
+        {
+          for(let j=0;j<beanPos.length;j++)
+          {
+            if(rs[i]==rs[j] && i!=j)
+            {
+              rs.splice(i,1);
+            }
+          }
+        }
+        if(rs.length==beanPos.length)break;
+        n++;
+      }
+    }
+
+  for(let i=0;i<popNum;i++)
+  {
+    CreateBean(beanPos[rs[i]][0],beanPos[rs[i]][1]);
+  }
 
   function CreateBean(top,left)
   {
