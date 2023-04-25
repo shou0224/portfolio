@@ -92,6 +92,14 @@ function GameClear()
     gameClear.textContent="GAME CLEAR";
     gameClear.className="gameClear";
     bool=false;
+
+    const restart=document.createElement("button");
+    parent.appendChild(restart);
+    restart.textContent="RESTART";
+    restart.className="restart";
+    restart.addEventListener('click',function(){
+      window.location.reload();
+    })
   }
 
 }
