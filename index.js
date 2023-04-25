@@ -7,6 +7,10 @@ const beanNum=document.createElement("div");
 const dropPlace=document.createElement("div");
 let beanCount=0;
 let bool=false;
+const beanPos=[ [10,100],[10,200],[10,300],
+                [110,100],[110,200],[110,300],
+                [210,100],[210,200],[210,300]
+              ];
 
 //START
 Start();
@@ -44,11 +48,11 @@ function Init()
 //
 function PopBean()
 {
-  CreateBean(50,100);
-  CreateBean(150,100);
-  CreateBean(100,200);
-  CreateBean(150,300);
-  CreateBean(50,400);
+  for(let i=0;i<beanPos.length;i++)
+  {
+    CreateBean(beanPos[i][0],beanPos[i][1]);
+  }
+  
 
   function CreateBean(top,left)
   {
