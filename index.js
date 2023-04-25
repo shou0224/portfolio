@@ -32,12 +32,22 @@ function Init()
 //
 function PopBean()
 {
-  const bean=document.createElement("img");
-  parent.appendChild(bean);
-  bean.src="bean.png";
-  bean.style.position="absolute";
-  bean.style.top=100+"px";
-  bean.style.left=100+"px";
-  bean.style.zIndex=200;
+  CreateBean(50,100);
+  CreateBean(150,100);
+  CreateBean(100,200);
+  CreateBean(150,300);
+  CreateBean(50,400);
+
+  function CreateBean(top,left)
+  {
+    const bean=document.createElement("img");
+    parent.appendChild(bean);
+    bean.src="bean.png";
+    bean.style.position="absolute";
+    bean.style.top=top+"px";
+    bean.style.left=left+"px";
+    bean.style.zIndex=200;
+
+  }
 
 }
