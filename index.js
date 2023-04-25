@@ -56,6 +56,7 @@ function Start()
 {
   // Init();
   OpenPack();
+  ShowGuide();
 }
 
 //UPDATE
@@ -166,4 +167,13 @@ function DropPlace()
     const bean=document.getElementById("drag");
     bean.remove();
   })
+}
+
+//ゲームガイド
+function ShowGuide()
+{
+  const guide=document.createElement("div");
+  document.body.appendChild(guide);
+  guide.textContent="納豆を下にドラッグしよう！";
+  guide.className="guide";
 }
