@@ -54,7 +54,8 @@ function test_r(array)
 Start();
 function Start()
 {
-  Init();
+  // Init();
+  OpenPack();
 }
 
 //UPDATE
