@@ -1,2 +1,31 @@
 @charset "UTF-8";
 
+.parent {
+  width: 500px;
+  height: 500px;
+  position: relative;
+  top: 100px;
+  left: calc(50% - 250px);
+}
+
+
+.title {
+  text-align: center;
+  position: absolute;
+  width: 100%;
+  top: 100px;
+  left: 0px;
+}
+.button {
+  text-align: center;
+  position: absolute;
+  width: 100px;
+  top: 68%;
+  left: calc(50% - 50px);
+}
+
+.img {
+  position: absolute;
+  z-index: -100;
+  width: 100%;
+}
