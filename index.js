@@ -4,6 +4,7 @@ const parent=document.getElementById("parent");
 const button=document.getElementById("button");
 const img=document.getElementById("img");
 const beanNum=document.createElement("div");
+const dropPlace=document.createElement("div");
 let beanCount=0;
 let bool=false;
 
@@ -30,6 +31,11 @@ function Init()
     img.style.zIndex=100;
     document.body.appendChild(beanNum);
     beanNum.className="count";
+    parent.appendChild(dropPlace);
+    dropPlace.className="dropPlace";
+    DropPlace();
+
+    // dropPlace.className="dropPlace";
 
     PopBean();
   })
@@ -54,10 +60,18 @@ function PopBean()
     bean.style.top=top+"px";
     bean.style.left=left+"px";
     bean.style.zIndex=200;
-    bean.addEventListener('click',function(){
-      this.remove();
-      beanCount--;
-      bool=true;
+    
+    bean.draggable="true";
+    bean.addEventListener('dragstart',function(){
+      this.style.zIndex=1000;
+      this.id="drag";
+    })
+    bean.addEventListener('dragover',function(evnt){
+      evnt.preventDefault();
+    })
+    bean.addEventListener('dragend',function(){
+      this.style.zIndex=200;
+      this.id="";
     })
 
   }
@@ -76,4 +90,25 @@ function GameClear()
     bool=false;
   }
 
+}
+
+//
+function DropPlace()
+{
+  dropPlace.addEventListener('dragover',function(evnt){
+    evnt.preventDefault();
+  })
+  dropPlace.addEventListener('dragenter',function(){
+    dropPlace.className="dropPlace cansee";
+  })
+  dropPlace.addEventListener('dragleave',function(){
+    dropPlace.className="dropPlace";
+  })
+  dropPlace.addEventListener('drop',function(){
+    dropPlace.className="dropPlace";
+    beanCount--;
+    bool=true;
+    const bean=document.getElementById("drag");
+    bean.remove();
+  })
 }

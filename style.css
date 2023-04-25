@@ -46,3 +46,18 @@
   top: 30%;
   left: 0%;
 }
+
+.dropPlace {
+  z-index: 500;
+  border: none 10px white;
+
+  position: absolute;
+  top: 70%;
+  width: 100%;
+  height: 200px;
+}
+
+.cansee {
+  border: solid 10px black;
+  
+}
