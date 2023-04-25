@@ -29,6 +29,7 @@ function Init()
     img.src="open_pack.png";
     img.style.zIndex=100;
     document.body.appendChild(beanNum);
+    beanNum.className="count";
 
     PopBean();
   })
@@ -71,7 +72,7 @@ function GameClear()
     const gameClear=document.createElement("div");
     parent.appendChild(gameClear);
     gameClear.textContent="GAME CLEAR";
-    gameClear.style.zIndex=1000;
+    gameClear.className="gameClear";
     bool=false;
   }
 
