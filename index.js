@@ -113,6 +113,7 @@ function CreateBean(top,left)
   //豆の動き
   bean.draggable="true";
   bean.addEventListener('dragstart',function(){
+    this.style.opacity=0;
     this.style.zIndex=1000;
     this.id="drag";
   })
