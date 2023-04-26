@@ -121,6 +121,7 @@ function CreateBean(top,left)
     evnt.preventDefault();
   })
   bean.addEventListener('dragend',function(){
+    this.style.opacity=1;
     this.style.zIndex=200;
     this.id="";
   })
